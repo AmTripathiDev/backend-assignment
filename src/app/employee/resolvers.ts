@@ -3,10 +3,10 @@ import { prismaClient } from "../db";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 
 const s3Client = new S3Client({
-  region: '',
+  region: process.env.AWS_REGION,
   credentials: {
-    secretAccessKey: "",
-    accessKeyId: "",
+    secretAccessKey: process.env.AWS_SECRET_KEY,
+    accessKeyId: process.env.AWS_ACCESS_KEY,
   },
 });
 const queries = {
@@ -31,7 +31,7 @@ const queries = {
       throw new Error("Unsupported Image Type");
 
     const putObjectCommand = new PutObjectCommand({
-      Bucket: "",
+      Bucket: process.env.AWS_BUCKET_NAME,
       ContentType: imageType,
       Key: `uploads/${Math.floor(
         Math.random() * 1000
