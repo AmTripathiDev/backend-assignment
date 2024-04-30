@@ -3,7 +3,7 @@ import { initServer } from "./app";
 async function initApp() {
   try {
     const app = await initServer();
-    app.listen(3000, () => {
+    app.listen(8000, () => {
       console.log("Server Initialized");
     });
   } catch(e: any) {

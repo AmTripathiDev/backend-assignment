@@ -17,6 +17,7 @@ model admin {
 id String @id @default(cuid())
 key String @unique
 email String @unique
+password String
 }
 
 model Employee {
@@ -26,5 +27,5 @@ model Employee {
   password String
   LinkedInProfile String
   ProfileImageUrl String?
-  aadharNumber String
+  aadharNumber Int
 }
