@@ -8,6 +8,7 @@ import { User } from "./user";
 
 
 export async function initServer() {
+  
     const app = express();
     app.use(bodyParser.json());
     app.use(cors());   
